@@ -20,5 +20,5 @@ Route::get('/', HomeController::class);
 Route::prefix("/product")->controller(ProductController::class)->group(function(){
     Route::get('/', action: 'index');
     Route::get('/create','create');
-    Route::get('/{id}/{categoria?}', 'show');
+    Route::get('/{id}', 'show');
 });
