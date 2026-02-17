@@ -139,13 +139,4 @@
         </div>
       </div>
 
-    </div>
-
-    <!-- FOOTER -->
-    <footer class="footer">
-      © 2025 GameStore<span class="sep">|</span>Todos los derechos reservados
-    </footer>
-
-  </div>
-
 @endsection
