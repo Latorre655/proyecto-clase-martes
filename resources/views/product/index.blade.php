@@ -41,7 +41,7 @@
 
       <div class="product-card" data-status="active">
         <div class="product-img-wrap">
-          <img src="https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?w=600&q=80" alt="DualSense Edge"/>
+          <img src="{{ asset ("storage/".$product -> image) }}" alt=""/>
           <div class="product-img-overlay"></div>
           <span class="status-badge active"><span class="status-dot"></span>Activo</span>
         </div>

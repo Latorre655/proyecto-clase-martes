@@ -21,7 +21,7 @@
         <div class="card-line"></div>
       </div>
 
-      <form class="form" novalidate action="{{ route("product.store") }}" method="POST">
+      <form class="form" novalidate action="{{ route("product.store") }}" method="POST" enctype="">
         @csrf
 
         <!-- Nombre -->
@@ -100,6 +100,11 @@
             <div class="input-border"></div>
           </div>
           <span class="char-hint">Describe al menos las especificaciones principales del producto</span>
+        </div>
+
+        <div class="form-group">
+            <label for="imagen">Imagen del Producto</label>
+            <input type="file" id="imagen" name="imagen">
         </div>
 
         <!-- Acciones -->
