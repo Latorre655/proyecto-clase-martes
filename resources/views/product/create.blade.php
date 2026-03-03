@@ -21,7 +21,8 @@
         <div class="card-line"></div>
       </div>
 
-      <form class="form" novalidate>
+      <form class="form" novalidate action="{{ route("product.store") }}" method="POST">
+        @csrf
 
         <!-- Nombre -->
         <div class="form-group">
@@ -64,23 +65,16 @@
           </div>
 
           <div class="form-group">
-            <label for="marca" class="label">
-              <span class="label-tag">03</span> Marca
+            <label for="category" class="label">
+              <span class="label-tag">03</span> Categoria
             </label>
             <div class="input-wrapper">
-              <select id="marca" name="marca" class="input select" required>
-                <option value="" disabled selected>Selecciona una marca</option>
-                <option>Sony</option>
-                <option>Microsoft</option>
-                <option>Nintendo</option>
-                <option>Razer</option>
-                <option>Logitech</option>
-                <option>SteelSeries</option>
-                <option>HyperX</option>
-                <option>Corsair</option>
-                <option>ASUS ROG</option>
-                <option>Turtle Beach</option>
-                <option>Otra</option>
+              <select id="marca" name="Categoria" class="input select" required>
+                <option value="" disabled selected>Selecciona una categoria</option>
+                @foreach ($myCategories as $category)
+                    <option value="{{ $category -> id }}">{{ $category-> name }}</option>
+
+                @endforeach
               </select>
               <div class="input-border"></div>
             </div>
