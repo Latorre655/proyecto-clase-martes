@@ -489,13 +489,13 @@
     <div class="nav-divider"></div>
 
     <ul class="nav-links" id="navLinks">
-      <li><a href="#">🕹️ Catálogo</a></li>
+      <li><a href="{{ route('product.index') }}">🕹️ Catálogo</a></li>
       <li><a href="#">➕ Agregar Producto</a></li>
       <li><a href="#">📦 Pedidos</a></li>
       <li><a href="#">📊 Estadísticas</a></li>
     </ul>
 
-    <a href="#" class="nav-cta">
+    <a href="{{ route('product.create') }}" class="nav-cta">
       <span class="nav-cta-shine"></span>
       ＋ Nuevo Producto
     </a>

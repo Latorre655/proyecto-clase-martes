@@ -11,7 +11,9 @@ class ProductController extends Controller
 {
     public function index(){
 
-        $productlist = Product::all();
+        $productlist = Product::paginate(9);
+
+
 
 
 
@@ -57,5 +59,10 @@ class ProductController extends Controller
 
     public function show($id){
         return view('product.show');
+    }
+
+    public function destroy(Product $product){
+        $product->delete();
+        return redirect()->route('product.index');
     }
 }

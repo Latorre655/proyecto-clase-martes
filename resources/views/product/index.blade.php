@@ -12,6 +12,11 @@
       <p class="header-sub">Panel de Administración · Productos Gaming</p>
     </header>
 
+    <br>
+    {{ $milista->links('pagination::simple-default') }}
+    <br>
+
+
     <!-- TOP BAR -->
     <div class="top-bar">
       <div class="top-left">
@@ -53,6 +58,11 @@
         <div class="product-footer">
           <div class="product-price"><span class="price-symbol">$</span><span class="price-amount">{{ $product->price}}</span></div>
           <button class="btn-buy">🛒 Agregar</button>
+          <form action="{{ route('product.destroy', $product) }}" method="post">
+            @csrf
+            @method('delete')
+            <button type="submit" class="btn-remove">- Eliminar</button>
+          </form>
         </div>
       </div>
       @endforeach
