@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Product;
+use Illuminate\Auth\Events\Validated;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -26,6 +27,15 @@ class ProductController extends Controller
     }
 
     public function store(Request $request){
+        //Validaciones
+        $request -> validate([
+            'nombre' => 'required|min:5|max:255',
+            'descripcion' => 'required',
+            'precio' => 'required|numeric',
+            'categoria' => 'required|exists:categories, id',
+            'imagen' => 'required|imge'
+        ]);
+
         $newproduct = new Product();
         $newproduct -> name = $request -> get("nombre");
         $newproduct -> descripcion = $request -> get("descripcion");

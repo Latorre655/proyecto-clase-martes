@@ -21,6 +21,19 @@
         <div class="card-line"></div>
       </div>
 
+      <br>
+
+      @if ($errors->any())
+          <div style="color: red">
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+
+            @endforeach
+            </div>
+        @endif
+
+        <br>
+
       <form class="form" novalidate action="{{ route("product.store") }}" method="POST" enctype="">
         @csrf
 
@@ -36,7 +49,8 @@
               name="nombre"
               class="input"
               placeholder="Ej: Control DualSense Edge Blanco"
-              required
+              value="{{ old("nombre") }}"
+
             />
             <div class="input-border"></div>
           </div>
@@ -58,7 +72,8 @@
                 placeholder="0.00"
                 min="0"
                 step="0.01"
-                required
+                value="{{ old("precio") }}"
+
               />
               <div class="input-border"></div>
             </div>
@@ -69,7 +84,7 @@
               <span class="label-tag">03</span> Categoria
             </label>
             <div class="input-wrapper">
-              <select id="marca" name="Categoria" class="input select" required>
+              <select id="marca" name="Categoria" class="input select">
                 <option value="" disabled selected>Selecciona una categoria</option>
                 @foreach ($myCategories as $category)
                     <option value="{{ $category -> id }}">{{ $category-> name }}</option>
@@ -95,8 +110,9 @@
               class="input textarea"
               placeholder="Describe las características, especificaciones y detalles del producto..."
               rows="5"
-              required
-            ></textarea>
+
+
+            >value="{{ old('descripcion') }}"</textarea>
             <div class="input-border"></div>
           </div>
           <span class="char-hint">Describe al menos las especificaciones principales del producto</span>
