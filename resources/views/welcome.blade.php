@@ -121,7 +121,7 @@
 
   <div class="catalog-grid">
     @forelse($products as $product)
-    <div class="product-card">
+    <div class="product-card" data-status="active" onclick="window.location='/product/{{ $product->id }}'" style="cursor:pointer;">
       <div class="product-img-wrap">
         <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}">
       </div>
