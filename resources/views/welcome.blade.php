@@ -89,13 +89,23 @@
 
 <!-- NAVBAR -->
 <nav class="navbar">
-  <a class="nav-logo" href="/">⚡ GAME<span class="nav-accent">STORE</span></a>
-  <ul class="nav-links">
-    <li><a href="/" class="active">🏠 Inicio</a></li>
-    <li><a href="{{ route('product.index') }}">🕹️ Catálogo</a></li>
-  </ul>
-  <a href="{{ route('product.create') }}" class="nav-cta">＋ Nuevo Producto</a>
-</nav>
+    <a class="nav-logo" href="#">
+      <span class="nav-logo-icon">⚡</span>
+      GAME<span class="nav-accent">STORE</span>
+    </a>
+
+    <div class="nav-divider"></div>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="{{ route('product.index') }}">🕹️ Catálogo</a></li>
+      <li><a href="/admin">⚙️ Admin</a></li>
+    </ul>
+
+    <a href="{{ route('product.create') }}" class="nav-cta">
+      <span class="nav-cta-shine"></span>
+      ＋ Nuevo Producto
+    </a>
+  </nav>
 
 <!-- HERO -->
 <section class="hero">

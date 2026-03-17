@@ -16,7 +16,6 @@
         <div class="card-title">
           <span class="card-icon">🎮</span>
           <h1>Nuevo Producto</h1>
-          <span class="card-badge">Admin</span>
         </div>
         <div class="card-line"></div>
       </div>

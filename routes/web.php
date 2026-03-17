@@ -2,8 +2,10 @@
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
-use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CartController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,5 +29,13 @@ Route::prefix("/product")->controller(ProductController::class)->group(function(
 });
 
 Route::prefix('admin')->group(function(){
-    Route::get('/', AdminController::class)->name('admin.index');
+    Route::get('/', AdminController::class)->name('index');
+    Route::resource('categories', CategoryController::class)->names('categories');
+});
+
+Route::prefix('cart')->controller(CartController::class)->group(function(){
+    Route::get('/', 'index')->name('cart.index');
+    Route::post('/add', 'add')->name('cart.add');
+    Route::delete('/remove/{id}', 'remove')->name('cart.remove');
+    Route::post('/clear', 'clear')->name('cart.clear');
 });
