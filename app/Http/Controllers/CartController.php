@@ -16,7 +16,7 @@ class CartController extends Controller
         $items = CartItem::with('product')
             ->where('session_id', $this->sessionId())
             ->get();
-        $total = $items->sum(fn($i) => $i->product->precio * $i->quantity);
+        $total = $items->sum(fn($i) => $i->product->price * $i->quantity);
         return view('cart.index', compact('items', 'total'));
     }
 

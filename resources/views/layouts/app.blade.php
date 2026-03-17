@@ -491,6 +491,7 @@
     <ul class="nav-links" id="navLinks">
       <li><a href="{{ route('product.index') }}">🕹️ Catálogo</a></li>
       <li><a href="/admin">⚙️ Admin</a></li>
+      <li><a href="{{ route('cart.index') }}">🛒 Carrito</a></li>
     </ul>
 
     <a href="{{ route('product.create') }}" class="nav-cta">

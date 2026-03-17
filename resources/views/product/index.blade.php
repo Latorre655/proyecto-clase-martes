@@ -46,7 +46,7 @@
 
       <div class="product-card" data-status="active" onclick="window.location='/product/{{ $product->id }}'" style="cursor:pointer;">
         <div class="product-img-wrap">
-          <img src="{{ asset ("storage/".$product -> image) }}" alt=""/>
+          <img src="{{ $product->image ? asset('storage/'.$product->image) : 'https://placehold.co/400x250/0d1120/00d4ff?text=GameStore' }}" alt=""/>
           <div class="product-img-overlay"></div>
           <span class="status-badge active"><span class="status-dot"></span>Activo</span>
         </div>
@@ -61,7 +61,11 @@
           <span class="price-amount">{{ $product->price }}</span>
         </div>
         <div style="display:flex; gap:.5rem; align-items:center;">
-          <button class="btn-buy" onclick="event.stopPropagation()" style="padding:.55rem .96rem;">🛒</button>
+          <form action="{{ route('cart.add') }}" method="POST" onclick="event.stopPropagation()">
+            @csrf
+            <input type="hidden" name="product_id" value="{{ $product->id }}">
+            <button type="submit" class="btn-buy" style="padding:.55rem .96rem;">🛒</button>
+          </form>
           <form action="{{ route('product.destroy', $product) }}"
                 method="post"
                 onclick="event.stopPropagation()">

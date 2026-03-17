@@ -308,8 +308,19 @@
         </div>
 
         <!-- Acciones -->
+        <!-- Agregar al carrito -->
+        <form action="{{ route('cart.add') }}" method="POST" style="width:100%;">
+          @csrf
+          <input type="hidden" name="product_id" value="{{ $product->id }}">
+          <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center; background:linear-gradient(135deg,#006b82,#00a8cc); color:#fff; border:1px solid rgba(0,212,255,.3); box-shadow:0 4px 20px rgba(0,212,255,.2);">
+            <span class="btn-shimmer"></span>
+            🛒 Agregar al Carrito
+          </button>
+        </form>
+
+        <!-- Acciones -->
         <div class="show-actions">
-          <a href="#" class="btn btn-ghost">← Volver</a>
+          <a href="{{ route('product.index') }}" class="btn btn-ghost">← Volver</a>
           <a href="#" class="btn btn-edit">✏️ Editar</a>
           <button class="btn btn-danger" onclick="openDeleteModal()">🗑️ Eliminar</button>
         </div>

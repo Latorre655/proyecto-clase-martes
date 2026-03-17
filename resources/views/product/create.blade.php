@@ -33,7 +33,7 @@
 
         <br>
 
-      <form class="form" novalidate action="{{ route("product.store") }}" method="POST" enctype="">
+      <form class="form" novalidate action="{{ route("product.store") }}" method="POST" enctype="multipart/form-data">
         @csrf
 
         <!-- Nombre -->

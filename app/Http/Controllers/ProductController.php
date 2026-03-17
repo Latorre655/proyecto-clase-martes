@@ -34,8 +34,8 @@ class ProductController extends Controller
             'nombre' => 'required|min:5|max:255',
             'descripcion' => 'required',
             'precio' => 'required|numeric',
-            'categoria' => 'required|exists:categories, id',
-            'imagen' => 'required|imge'
+            'categoria' => 'nullable',
+            'imagen' => 'nullable|image|max:2048'
         ]);
 
         $newproduct = new Product();
@@ -58,7 +58,8 @@ class ProductController extends Controller
     }
 
     public function show($id){
-        return view('product.show');
+        $product = Product::findOrFail($id);
+        return view('product.show', compact('product'));
     }
 
     public function destroy(Product $product){
